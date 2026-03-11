@@ -1,0 +1,156 @@
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 12;
+  width: var(--cWidth);
+  max-width: 1920px;
+  margin: auto;
+  padding: 100px 0;
+  background-color: var(--backgroundColor);
+}
+
+.skills-section h2 {
+  font-size: 70px;
+  line-height: 70px;
+  font-weight: 400;
+  text-align: center;
+  background: linear-gradient(0deg, #0d9488, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 70px;
+}
+
+.skills-section h2 > span {
+  font-family: "Geist", sans-serif;
+  font-weight: 300;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.skill-category {
+  position: relative;
+  padding: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.skill-category::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accentColor), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.skill-category:hover {
+  border-color: rgba(94, 234, 212, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(94, 234, 212, 0.06);
+}
+
+.skill-category:hover::before {
+  opacity: 1;
+}
+
+.skill-category h3 {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+  margin: 0 0 20px 0;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-size: 13px;
+  font-weight: 400;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  transition: all 0.3s;
+  letter-spacing: 0.3px;
+}
+
+.skill-tag:hover {
+  background-color: rgba(94, 234, 212, 0.1);
+  border-color: rgba(94, 234, 212, 0.3);
+  color: var(--accentColor);
+}
+
+@media only screen and (max-width: 1400px) {
+  .skills-section h2 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  .skills-grid {
+    max-width: 900px;
+  }
+
+  .skill-category {
+    padding: 28px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .skills-section {
+    padding: 60px 0;
+  }
+
+  .skills-section h2 {
+    font-size: 45px;
+    line-height: 45px;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: calc(100% - 25px);
+  }
+
+  .skill-category {
+    padding: 24px;
+  }
+
+  .skills-section {
+    align-items: start;
+  }
+}
