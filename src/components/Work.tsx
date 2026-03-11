@@ -9,18 +9,21 @@ const projects = [
     category: "Microservices & DevSecOps",
     tools: ["Jenkins", "Argo CD", "Kubernetes", "OWASP", "Trivy", "SonarQube", "Docker", "External Secrets", "AWS", "Git"],
     image: "/images/project-gitops.png",
+    link: "https://github.com/zohaibwarraich1/retail-store-sample-app-by-AWS",
   },
   {
     title: "Scalable AWS Architecture",
     category: "Cloud Infrastructure",
     tools: ["AWS EC2", "VPC", "ALB", "Auto Scaling", "Aurora MySQL", "RDS Proxy"],
     image: "/images/project-aws.png",
+    link: "https://medium.com/@muhammadzohaibwarraich0/building-a-scalable-web-application-on-aws-a-comprehensive-architecture-walkthrough-dcd132377023",
   },
   {
     title: "End-to-End DevSecOps Pipeline",
     category: "DevSecOps",
     tools: ["Docker", "Jenkins", "Git", "SSL Certs", "Nginx", "AWS"],
     image: "/images/project-cicd.gif",
+    link: "https://github.com/zohaibwarraich1/3-Tier-DevSecOps-Mega-Project",
   }
 ];
 
@@ -104,6 +107,17 @@ const Work = () => {
                             ))}
                           </div>
                         </div>
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="carousel-project-link"
+                            data-cursor="disable"
+                          >
+                            View Project →
+                          </a>
+                        )}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
