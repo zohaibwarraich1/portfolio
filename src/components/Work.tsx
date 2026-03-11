@@ -16,6 +16,12 @@ const projects = [
     tools: ["AWS EC2", "VPC", "ALB", "Auto Scaling", "Aurora MySQL", "RDS Proxy"],
     image: "/images/project-aws.png",
   },
+  {
+    title: "End-to-End DevSecOps Pipeline",
+    category: "DevSecOps",
+    tools: ["Docker", "Jenkins", "Git", "SSL Certs", "Nginx", "AWS"],
+    image: "/images/project-cicd.gif",
+  }
 ];
 
 const Work = () => {
