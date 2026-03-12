@@ -206,7 +206,7 @@
 }
 .what-content-in {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 .what-content-in h5 {
   font-weight: 300;
