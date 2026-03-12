@@ -19,6 +19,12 @@
 
 .work-container {
   margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 120px;
+  box-sizing: border-box;
 }
 
 /* ── Carousel ── */
@@ -26,6 +32,7 @@
   position: relative;
   width: 100%;
   overflow: visible;
+  max-width: 1300px;
 }
 
 .carousel-track-container {
@@ -288,6 +295,10 @@
 
 /* ── Responsive ── */
 @media only screen and (max-width: 1600px) {
+  .work-container {
+    padding: 0 100px;
+  }
+
   .carousel-arrow-left {
     left: -60px;
   }
@@ -298,6 +309,10 @@
 }
 
 @media only screen and (max-width: 1400px) {
+  .work-container {
+    padding: 0 80px;
+  }
+
   .work-section h2 {
     font-size: 50px;
   }
@@ -324,6 +339,10 @@
 }
 
 @media only screen and (max-width: 1025px) {
+  .work-container {
+    padding: 0 60px;
+  }
+
   .carousel-content {
     flex-direction: column;
     gap: 30px;
@@ -353,6 +372,10 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .work-container {
+    padding: 0 40px;
+  }
+
   .work-section {
     padding: 50px 0;
   }
