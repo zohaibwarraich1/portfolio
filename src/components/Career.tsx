@@ -61,58 +61,60 @@ const Career = () => {
         </div>
 
         <div className="career-tab-content">
-          {activeTab === "education" && (
-            <div className="career-info">
-              <div className="career-timeline">
-                <div className="career-dot"></div>
+          <div
+            className="career-info"
+            style={{ display: activeTab === "education" ? "flex" : "none" }}
+          >
+            <div className="career-timeline">
+              <div className="career-dot"></div>
+            </div>
+            {educationData.map((item, index) => (
+              <div className="career-info-box" key={index}>
+                <div className="career-info-in">
+                  <div className="career-role">
+                    <h4>{item.title}</h4>
+                    <h5>{item.institution}</h5>
+                  </div>
+                  <h3>{item.year}</h3>
+                </div>
+                <p>{item.description}</p>
               </div>
-              {educationData.map((item, index) => (
-                <div className="career-info-box" key={index}>
-                  <div className="career-info-in">
-                    <div className="career-role">
-                      <h4>{item.title}</h4>
-                      <h5>{item.institution}</h5>
-                    </div>
-                    <h3>{item.year}</h3>
-                  </div>
-                  <p>{item.description}</p>
-                </div>
-              ))}
-            </div>
-          )}
+            ))}
+          </div>
 
-          {activeTab === "certifications" && (
-            <div className="cert-grid">
-              {certificationData.map((cert, index) => (
-                <div className="cert-card" key={index}>
-                  <div className="cert-badge">
-                    <img src={cert.image} alt={cert.title} />
-                  </div>
-                  <div className="cert-details">
-                    <div className="cert-header">
-                      <div>
-                        <h4>{cert.title}</h4>
-                        <h5>{cert.issuer}</h5>
-                      </div>
-                      <h3>{cert.year}</h3>
-                    </div>
-                    <p>{cert.description}</p>
-                    {cert.verificationLink && (
-                      <a
-                        href={cert.verificationLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cert-verify-link"
-                        data-cursor="disable"
-                      >
-                        Verify Certification →
-                      </a>
-                    )}
-                  </div>
+          <div
+            className="cert-grid"
+            style={{ display: activeTab === "certifications" ? "flex" : "none" }}
+          >
+            {certificationData.map((cert, index) => (
+              <div className="cert-card" key={index}>
+                <div className="cert-badge">
+                  <img src={cert.image} alt={cert.title} />
                 </div>
-              ))}
-            </div>
-          )}
+                <div className="cert-details">
+                  <div className="cert-header">
+                    <div>
+                      <h4>{cert.title}</h4>
+                      <h5>{cert.issuer}</h5>
+                    </div>
+                    <h3>{cert.year}</h3>
+                  </div>
+                  <p>{cert.description}</p>
+                  {cert.verificationLink && (
+                    <a
+                      href={cert.verificationLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cert-verify-link"
+                      data-cursor="disable"
+                    >
+                      Verify Certification →
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
