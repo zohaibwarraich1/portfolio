@@ -5,14 +5,6 @@ import gsap from "gsap";
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    // Skip custom cursor on touch devices or if reduced motion is preferred
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (isTouchDevice || prefersReducedMotion) {
-      return;
-    }
-
     let hover = false;
     let animationId: number;
     const cursor = cursorRef.current!;
