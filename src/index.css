@@ -250,9 +250,3 @@ body {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-
-/* Content visibility optimization for off-screen sections */
-.section-container {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 500px;
-}

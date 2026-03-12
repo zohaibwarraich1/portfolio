@@ -164,11 +164,13 @@ export function setAllTimeline() {
     )
     .fromTo(
       ".career-dot",
-      { animationIterationCount: "infinite" },
+      { opacity: 0, scale: 0.6 },
       {
-        animationIterationCount: "1",
+        opacity: 1,
+        scale: 1,
         delay: 0.3,
-        duration: 0.1,
+        duration: 0.25,
+        ease: "power2.out",
       },
       0
     );
