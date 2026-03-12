@@ -184,7 +184,7 @@ const TechStack = () => {
     { name: "Linux", image: "/images/linux-logo.jpeg" },
     { name: "Bash", image: "/images/bash-logo.png" },
     { name: "Git", image: "/images/git-logo.png" },
-    { name: "Nginx", image: "/images/nginx-logo.wbep" },
+    { name: "Nginx", image: "/images/nginx-logo.jpg" },
   ];
 
   return (
