@@ -25,7 +25,7 @@ const certificationData = [
     year: "2025",
     description:
       "Achieved AWS Cloud Practitioner certification, validating foundational knowledge of AWS cloud services, architecture, security, and pricing models.",
-    image: "/images/aws-logo.jpg",
+    image: "/images/aws-logo.webp",
     verificationLink: "https://cp.certmetrics.com/amazon/en/public/verify/credential/b92aa5827a7144a1b8d75df22211a8ec", 
   },
 ];
