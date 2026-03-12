@@ -49,6 +49,14 @@ const Contact = () => {
             >
               Instagram <MdArrowOutward />
             </a>
+            <a
+              href="https://medium.com/@muhammadzohaibwarraich0"
+              target="_blank"
+              data-cursor="disable"
+              className="contact-social"
+            >
+              Medium <MdArrowOutward />
+            </a>
           </div>
           <div className="contact-box">
             <h2>

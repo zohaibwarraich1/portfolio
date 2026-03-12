@@ -40,11 +40,6 @@
   letter-spacing: 1px;
   font-weight: 500;
 }
-@media only screen and (min-width: 500px) {
-  .header ul {
-    column-gap: 20px;
-  }
-}
 .navbar-title {
   font-weight: 700;
   font-size: 14px;
@@ -57,8 +52,8 @@
   .header ul {
     flex-direction: row;
     align-items: center;
-    font-size: 13px;
-    column-gap: 25px;
+    font-size: 12px;
+    column-gap: 15px;
   }
   .header ul li {
     color: #eae5ec;
@@ -67,16 +62,19 @@
     font-size: 16px;
   }
 }
+@media only screen and (min-width: 900px) {
+  .header ul {
+    column-gap: 25px;
+    font-size: 13px;
+  }
+}
 @media only screen and (min-width: 1200px) {
   .header {
     padding: 35px 0px;
   }
   .header ul {
-    column-gap: 40px;
+    column-gap: 35px;
     font-size: 15px;
-  }
-  .navbar-connect {
-    font-size: 16px;
   }
   .navbar-title {
     font-size: 18px;
@@ -84,10 +82,11 @@
 }
 @media only screen and (min-width: 1500px) {
   .header ul {
-    column-gap: 60px;
+    column-gap: 50px;
     font-size: 16px;
   }
   .navbar-connect {
     display: block;
+    font-size: 16px;
   }
 }
