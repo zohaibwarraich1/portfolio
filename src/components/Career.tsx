@@ -89,7 +89,7 @@ const Career = () => {
             {certificationData.map((cert, index) => (
               <div className="cert-card" key={index}>
                 <div className="cert-badge">
-                  <img src={cert.image} alt={cert.title} />
+                  <img src={cert.image} alt={cert.title} loading="lazy" />
                 </div>
                 <div className="cert-details">
                   <div className="cert-header">

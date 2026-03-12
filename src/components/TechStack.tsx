@@ -10,6 +10,9 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import { getCachedPerformanceSettings } from "../utils/performance";
+
+const perfSettings = getCachedPerformanceSettings();
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
@@ -28,7 +31,8 @@ const imageUrls = [
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
-const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
+// Optimized sphere geometry based on device performance
+const sphereGeometry = new THREE.SphereGeometry(1, perfSettings.sphereSegments, perfSettings.sphereSegments);
 
 const spheres = imageUrls.map(() => ({
   scale: [0.8, 1, 0.9, 1, 1][Math.floor(Math.random() * 5)],
@@ -51,8 +55,9 @@ function SphereGeo({
 }: SphereProps) {
   const api = useRef<RapierRigidBody | null>(null);
 
-  useFrame((_state, delta) => {
+  useFrame(({ invalidate }, delta) => {
     if (!isActive) return;
+    invalidate(); // Request next frame for demand mode
     delta = Math.min(0.1, delta);
     const impulse = vec
       .copy(api.current!.translation())
@@ -103,8 +108,9 @@ type PointerProps = {
 function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
   const ref = useRef<RapierRigidBody>(null);
 
-  useFrame(({ pointer, viewport }) => {
+  useFrame(({ pointer, viewport, invalidate }) => {
     if (!isActive) return;
+    invalidate(); // Request next frame for demand mode
     const targetVec = vec.lerp(
       new THREE.Vector3(
         (pointer.x * viewport.width) / 2,
@@ -210,12 +216,17 @@ const TechStack = () => {
         </div>
 
         <div style={{ display: activeTab === "interactive" ? "block" : "none", width: "100%", flex: 1, minHeight: 0 }}>
+          {perfSettings.enablePhysics ? (
           <Canvas
             shadows
             gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
             camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-            onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+            onCreated={(state) => {
+              state.gl.toneMappingExposure = 1.5;
+              state.gl.setPixelRatio(perfSettings.pixelRatio);
+            }}
             className="tech-canvas"
+            frameloop="demand"
           >
             <ambientLight intensity={1} />
             <spotLight
@@ -224,7 +235,7 @@ const TechStack = () => {
               angle={0.2}
               color="white"
               castShadow
-              shadow-mapSize={[512, 512]}
+              shadow-mapSize={[perfSettings.shadowMapSize, perfSettings.shadowMapSize]}
             />
             <directionalLight position={[0, 5, -4]} intensity={2} />
             <Physics gravity={[0, 0, 0]}>
@@ -243,17 +254,31 @@ const TechStack = () => {
               environmentIntensity={0.5}
               environmentRotation={[0, 4, 2]}
             />
-            <EffectComposer enableNormalPass={false}>
-              <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
-            </EffectComposer>
+            {perfSettings.enablePostProcessing && (
+              <EffectComposer enableNormalPass={false}>
+                <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+              </EffectComposer>
+            )}
           </Canvas>
+          ) : (
+            <div className="tech-grid-view" style={{ display: "flex" }}>
+              {techList.map((tech, index) => (
+                <div className="tech-card" key={index}>
+                  <div className="tech-icon-wrapper">
+                    <img src={tech.image} alt={tech.name} loading="lazy" />
+                  </div>
+                  <span>{tech.name}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div style={{ display: activeTab === "grid" ? "flex" : "none" }} className="tech-grid-view">
           {techList.map((tech, index) => (
             <div className="tech-card" key={index}>
               <div className="tech-icon-wrapper">
-                <img src={tech.image} alt={tech.name} />
+                <img src={tech.image} alt={tech.name} loading="lazy" />
               </div>
               <span>{tech.name}</span>
             </div>

@@ -241,3 +241,30 @@ body {
     height: 100px;
   }
 }
+
+/* Performance optimizations for low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* GPU acceleration for animated elements */
+.tech-card,
+.work-image,
+.cursor-main {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Content visibility optimization for off-screen sections */
+.section-container {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}

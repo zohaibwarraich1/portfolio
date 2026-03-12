@@ -5,24 +5,38 @@ import gsap from "gsap";
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    // Skip custom cursor on touch devices or if reduced motion is preferred
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (isTouchDevice || prefersReducedMotion) {
+      return;
+    }
+
     let hover = false;
+    let animationId: number;
     const cursor = cursorRef.current!;
     const mousePos = { x: 0, y: 0 };
     const cursorPos = { x: 0, y: 0 };
-    document.addEventListener("mousemove", (e) => {
+    
+    const handleMouseMove = (e: MouseEvent) => {
       mousePos.x = e.clientX;
       mousePos.y = e.clientY;
-    });
-    requestAnimationFrame(function loop() {
+    };
+    
+    document.addEventListener("mousemove", handleMouseMove, { passive: true });
+    
+    const loop = () => {
       if (!hover) {
         const delay = 6;
         cursorPos.x += (mousePos.x - cursorPos.x) / delay;
         cursorPos.y += (mousePos.y - cursorPos.y) / delay;
         gsap.to(cursor, { x: cursorPos.x, y: cursorPos.y, duration: 0.1 });
-        // cursor.style.transform = `translate(${cursorPos.x}px, ${cursorPos.y}px)`;
       }
-      requestAnimationFrame(loop);
-    });
+      animationId = requestAnimationFrame(loop);
+    };
+    animationId = requestAnimationFrame(loop);
+    
     document.querySelectorAll("[data-cursor]").forEach((item) => {
       const element = item as HTMLElement;
       element.addEventListener("mouseover", (e: MouseEvent) => {
@@ -31,9 +45,7 @@ const Cursor = () => {
 
         if (element.dataset.cursor === "icons") {
           cursor.classList.add("cursor-icons");
-
           gsap.to(cursor, { x: rect.left, y: rect.top, duration: 0.1 });
-          //   cursor.style.transform = `translate(${rect.left}px,${rect.top}px)`;
           cursor.style.setProperty("--cursorH", `${rect.height}px`);
           hover = true;
         }
@@ -46,6 +58,11 @@ const Cursor = () => {
         hover = false;
       });
     });
+    
+    return () => {
+      cancelAnimationFrame(animationId);
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   return <div className="cursor-main" ref={cursorRef}></div>;
