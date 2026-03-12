@@ -133,10 +133,31 @@ export function setCharTimeline(
 }
 
 export function setAllTimeline() {
+  const idleGlow =
+    "0px 0px 5px 2px #67e8f9, 0px 0px 15px 8px #5eead4, 0px 0px 110px 20px #a5f3fc";
+  const activeGlow =
+    "0px 0px 10px 4px #67e8f9, 0px 0px 28px 14px #5eead4, 0px 0px 150px 38px #a5f3fc";
+
+  gsap.killTweensOf(".career-dot");
+  gsap.set(".career-dot", { boxShadow: idleGlow });
+
+  const blinkTween = gsap.to(".career-dot", {
+    boxShadow: activeGlow,
+    duration: 0.32,
+    repeat: -1,
+    yoyo: true,
+    ease: "power1.inOut",
+    paused: true,
+  });
+
   const setCareerDotBlink = (shouldBlink: boolean) => {
-    gsap.set(".career-dot", {
-      animationPlayState: shouldBlink ? "running" : "paused",
-    });
+    if (shouldBlink) {
+      blinkTween.resume();
+      return;
+    }
+
+    blinkTween.pause(0);
+    gsap.set(".career-dot", { boxShadow: idleGlow });
   };
 
   const careerTimeline = gsap.timeline({
