@@ -45,6 +45,41 @@
   font-size: 14px;
   letter-spacing: 0.2px;
 }
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  color: #eae5ec;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  background: rgba(94, 234, 212, 0.1);
+}
+
+.light-mode .theme-toggle {
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #1a1a2e;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .theme-toggle:hover {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+  background: rgba(13, 148, 136, 0.1);
+}
 @media only screen and (min-width: 500px) {
   .header {
     padding: 20px 0px;

@@ -20,8 +20,21 @@
   -moz-user-select: none;
   --accentColor: #5eead4;
   --backgroundColor: #0a0e17;
+  --textColor: #eae5ec;
+  --cardBg: rgba(255, 255, 255, 0.05);
+  --cardBorder: rgba(255, 255, 255, 0.08);
   --vh: 100vh;
   --vh: 100svh;
+}
+
+:root.light-mode {
+  --backgroundColor: #f0f2f5;
+  --textColor: #1a1a2e;
+  --accentColor: #0d9488;
+  --cardBg: rgba(0, 0, 0, 0.04);
+  --cardBorder: rgba(0, 0, 0, 0.1);
+  color: var(--textColor);
+  color-scheme: light;
 }
 
 h1,
@@ -72,6 +85,10 @@ body {
   --cMaxWidth: 1920px;
   max-width: 100vw;
   overflow-x: hidden;
+}
+
+.light-mode body {
+  background-color: #e8eaed;
 }
 
 .main-body {
@@ -240,4 +257,79 @@ body {
     width: calc(33% - 13px);
     height: 100px;
   }
+}
+
+/* Light Mode Overrides */
+.light-mode .landing-circle1,
+.light-mode .landing-circle2 {
+  opacity: 0.3;
+}
+
+.light-mode .header ul li {
+  color: #333;
+}
+
+.light-mode .navbar-title {
+  color: #1a1a2e;
+}
+
+.light-mode .navbar-connect {
+  color: #333;
+}
+
+.light-mode .landing-intro h1 {
+  color: #1a1a2e;
+}
+
+.light-mode .landing-cta-btn {
+  border-color: rgba(13, 148, 136, 0.3);
+  background: rgba(13, 148, 136, 0.08);
+}
+
+.light-mode .landing-cta-btn:hover {
+  background: rgba(13, 148, 136, 0.15);
+  border-color: var(--accentColor);
+}
+
+.light-mode a:hover {
+  color: var(--accentColor);
+}
+
+.light-mode .tech-card {
+  background: var(--cardBg);
+  border-color: var(--cardBorder);
+}
+
+.light-mode .tech-card span {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.light-mode .tech-card:hover span {
+  color: #1a1a2e;
+}
+
+.light-mode .resume-button {
+  border-color: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.04);
+  color: #555;
+}
+
+.light-mode .resume-button:hover {
+  color: #1a1a2e;
+  border-color: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.light-mode .contact-section h3,
+.light-mode .contact-section h4 {
+  color: #1a1a2e;
+}
+
+.light-mode .contact-section p,
+.light-mode .contact-section a {
+  color: #333;
+}
+
+.light-mode .contact-box h2 {
+  color: #1a1a2e;
 }
