@@ -173,7 +173,7 @@ const TechStack = () => {
   const [activeTab, setActiveTab] = useState<"interactive" | "grid">("interactive");
 
   const techList = [
-    { name: "AWS", image: "/images/aws.jpg" },
+    { name: "AWS", image: "/images/aws-logo.webp" },
     { name: "Docker", image: "/images/docker.webp" },
     { name: "Kubernetes", image: "/images/kubernetes.webp" },
     { name: "Jenkins", image: "/images/jenkins.png" },
