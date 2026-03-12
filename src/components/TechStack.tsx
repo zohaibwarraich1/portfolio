@@ -174,7 +174,7 @@ const TechStack = () => {
 
   const techList = [
     { name: "AWS", image: "/images/aws-logo.webp" },
-    { name: "Docker", image: "/images/docker-logo.jpeg" },
+    { name: "Docker", image: "/images/docker-logo.webp" },
     { name: "Kubernetes", image: "/images/kubernetes-logo.png" },
     { name: "Jenkins", image: "/images/jenkins-logo.png" },
     { name: "Terraform", image: "/images/terraform-logo.webp" },
