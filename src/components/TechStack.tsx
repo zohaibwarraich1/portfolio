@@ -191,72 +191,74 @@ const TechStack = () => {
     <div className="techstack">
       <h2>My Techstack</h2>
 
-      <div className="career-tabs" style={{ marginBottom: "40px" }}>
-        <button
-          className={`career-tab ${activeTab === "interactive" ? "career-tab-active" : ""}`}
-          onClick={() => setActiveTab("interactive")}
-          data-cursor="disable"
-        >
-          Interactive Globe
-        </button>
-        <button
-          className={`career-tab ${activeTab === "grid" ? "career-tab-active" : ""}`}
-          onClick={() => setActiveTab("grid")}
-          data-cursor="disable"
-        >
-          Technology Grid
-        </button>
-      </div>
+      <div className="techstack-content-wrapper">
+        <div className="career-tabs" style={{ marginBottom: "40px" }}>
+          <button
+            className={`career-tab ${activeTab === "interactive" ? "career-tab-active" : ""}`}
+            onClick={() => setActiveTab("interactive")}
+            data-cursor="disable"
+          >
+            Interactive Globe
+          </button>
+          <button
+            className={`career-tab ${activeTab === "grid" ? "career-tab-active" : ""}`}
+            onClick={() => setActiveTab("grid")}
+            data-cursor="disable"
+          >
+            Technology Grid
+          </button>
+        </div>
 
-      <div style={{ display: activeTab === "interactive" ? "block" : "none", width: "100%", height: "100%" }}>
-        <Canvas
-          shadows
-          gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
-          camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-          onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
-          className="tech-canvas"
-        >
-          <ambientLight intensity={1} />
-          <spotLight
-            position={[20, 20, 25]}
-            penumbra={1}
-            angle={0.2}
-            color="white"
-            castShadow
-            shadow-mapSize={[512, 512]}
-          />
-          <directionalLight position={[0, 5, -4]} intensity={2} />
-          <Physics gravity={[0, 0, 0]}>
-            <Pointer isActive={isActive && activeTab === "interactive"} />
-            {spheres.map((props, i) => (
-              <SphereGeo
-                key={i}
-                {...props}
-                material={materials[i]}
-                isActive={isActive && activeTab === "interactive"}
-              />
-            ))}
-          </Physics>
-          <Environment
-            files="/models/char_enviorment.hdr"
-            environmentIntensity={0.5}
-            environmentRotation={[0, 4, 2]}
-          />
-          <EffectComposer enableNormalPass={false}>
-            <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
-          </EffectComposer>
-        </Canvas>
-      </div>
+        <div style={{ display: activeTab === "interactive" ? "block" : "none", width: "100%", flex: 1, minHeight: 0 }}>
+          <Canvas
+            shadows
+            gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
+            camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
+            onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+            className="tech-canvas"
+          >
+            <ambientLight intensity={1} />
+            <spotLight
+              position={[20, 20, 25]}
+              penumbra={1}
+              angle={0.2}
+              color="white"
+              castShadow
+              shadow-mapSize={[512, 512]}
+            />
+            <directionalLight position={[0, 5, -4]} intensity={2} />
+            <Physics gravity={[0, 0, 0]}>
+              <Pointer isActive={isActive && activeTab === "interactive"} />
+              {spheres.map((props, i) => (
+                <SphereGeo
+                  key={i}
+                  {...props}
+                  material={materials[i]}
+                  isActive={isActive && activeTab === "interactive"}
+                />
+              ))}
+            </Physics>
+            <Environment
+              files="/models/char_enviorment.hdr"
+              environmentIntensity={0.5}
+              environmentRotation={[0, 4, 2]}
+            />
+            <EffectComposer enableNormalPass={false}>
+              <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+            </EffectComposer>
+          </Canvas>
+        </div>
 
-      <div style={{ display: activeTab === "grid" ? "flex" : "none" }} className="tech-grid-view">
-        {techList.map((tech, index) => (
-          <div className="tech-card" key={index}>
-            <div className="tech-icon-wrapper">
-              <img src={tech.image} alt={tech.name} />
+        <div style={{ display: activeTab === "grid" ? "flex" : "none" }} className="tech-grid-view">
+          {techList.map((tech, index) => (
+            <div className="tech-card" key={index}>
+              <div className="tech-icon-wrapper">
+                <img src={tech.image} alt={tech.name} />
+              </div>
+              <span>{tech.name}</span>
             </div>
-            <span>{tech.name}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
