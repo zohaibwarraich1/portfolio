@@ -133,6 +133,12 @@ export function setCharTimeline(
 }
 
 export function setAllTimeline() {
+  const setCareerDotBlink = (shouldBlink: boolean) => {
+    gsap.set(".career-dot", {
+      animationPlayState: shouldBlink ? "running" : "paused",
+    });
+  };
+
   const careerTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: ".career-section",
@@ -140,6 +146,15 @@ export function setAllTimeline() {
       end: "100% center",
       scrub: true,
       invalidateOnRefresh: true,
+      onEnter: () => setCareerDotBlink(true),
+      onEnterBack: () => setCareerDotBlink(true),
+      onLeave: () => setCareerDotBlink(false),
+      onLeaveBack: () => setCareerDotBlink(false),
+      onUpdate: (self) => {
+        const isScrolling = Math.abs(self.getVelocity()) > 10;
+        const sectionCompleted = self.progress >= 0.99;
+        setCareerDotBlink(isScrolling && !sectionCompleted);
+      },
     },
   });
   careerTimeline

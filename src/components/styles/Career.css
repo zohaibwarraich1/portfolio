@@ -157,6 +157,7 @@
     0px 0px 110px 20px #a5f3fc;
   opacity: 0;
   animation: dotPulse 1.5s ease-in-out infinite;
+  animation-play-state: paused;
 }
 
 @keyframes dotPulse {
