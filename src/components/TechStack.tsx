@@ -174,17 +174,17 @@ const TechStack = () => {
 
   const techList = [
     { name: "AWS", image: "/images/aws-logo.webp" },
-    { name: "Docker", image: "/images/docker.webp" },
-    { name: "Kubernetes", image: "/images/kubernetes.webp" },
-    { name: "Jenkins", image: "/images/jenkins.png" },
-    { name: "Terraform", image: "/images/terraform.jpg" },
-    { name: "ArgoCD", image: "/images/argocd.webp" },
-    { name: "Prometheus", image: "/images/prometheus.png" },
-    { name: "Grafana", image: "/images/grafana.webp" },
-    { name: "Linux", image: "/images/linux.webp" },
-    { name: "Bash", image: "/images/bash-scripting.png" },
-    { name: "Git", image: "/images/git.png" },
-    { name: "Nginx", image: "/images/nginx.jpg" },
+    { name: "Docker", image: "/images/docker-logo.jpeg" },
+    { name: "Kubernetes", image: "/images/kubernetes-logo.png" },
+    { name: "Jenkins", image: "/images/jenkins-logo.png" },
+    { name: "Terraform", image: "/images/terraform-logo.webp" },
+    { name: "ArgoCD", image: "/images/argocd-logo.webp" },
+    { name: "Prometheus", image: "/images/prometheus-logo.png" },
+    { name: "Grafana", image: "/images/grafana-logo.png" },
+    { name: "Linux", image: "/images/linux-logo.jpeg" },
+    { name: "Bash", image: "/images/bash-logo.png" },
+    { name: "Git", image: "/images/git-logo.png" },
+    { name: "Nginx", image: "/images/nginx-logo.wbep" },
   ];
 
   return (
