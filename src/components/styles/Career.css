@@ -140,15 +140,16 @@
       #14b8a6 20%,
       var(--accentColor) 50%,
       transparent 95%);
-  animation: timelineGrow 0.8s ease-out forwards;
+  max-height: 0%;
+  animation: timelineGrow 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes timelineGrow {
   from {
-    max-height: 0%;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
   to {
-    max-height: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 
