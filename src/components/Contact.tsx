@@ -14,6 +14,12 @@ const Contact = () => {
                 mzohaibw1@gmail.com
               </a>
             </p>
+            <h4>Phone</h4>
+            <p>
+              <a href="tel:+923189655330" data-cursor="disable">
+                +92 318-9655330
+              </a>
+            </p>
             <h4>Education</h4>
             <p>BSCS - National Textile University</p>
           </div>
