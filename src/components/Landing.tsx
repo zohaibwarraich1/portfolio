@@ -35,7 +35,7 @@ const Landing = ({ children }: PropsWithChildren) => {
             <div className="landing-cta">
               <a
                 className="landing-cta-btn"
-                href="/resume/DevOps M Zohaib warraich CV.pdf"
+                href="/resume/DevOps%20M%20Zohaib%20warraich%20CV.pdf"
                 target="_blank"
                 data-cursor="disable"
               >
