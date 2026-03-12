@@ -1,7 +1,25 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { HiOutlineDownload } from "react-icons/hi";
 import { FiEye } from "react-icons/fi";
-import "./styles/Landing.css";\n\nconst Landing = ({ children }: PropsWithChildren) => {\n  const [visitorCount, setVisitorCount] = useState<number>(0);\n\n  useEffect(() => {\n    const count = parseInt(localStorage.getItem(\"visitorCount\") || \"0\", 10);\n    const visited = sessionStorage.getItem(\"visited\");\n    if (!visited) {\n      const newCount = count + 1;\n      localStorage.setItem(\"visitorCount\", String(newCount));\n      sessionStorage.setItem(\"visited\", \"true\");\n      setVisitorCount(newCount);\n    } else {\n      setVisitorCount(count);\n    }\n  }, []);\n\n  return (
+import "./styles/Landing.css";
+
+const Landing = ({ children }: PropsWithChildren) => {
+  const [visitorCount, setVisitorCount] = useState<number>(0);
+
+  useEffect(() => {
+    const count = parseInt(localStorage.getItem("visitorCount") || "0", 10);
+    const visited = sessionStorage.getItem("visited");
+    if (!visited) {
+      const newCount = count + 1;
+      localStorage.setItem("visitorCount", String(newCount));
+      sessionStorage.setItem("visited", "true");
+      setVisitorCount(newCount);
+    } else {
+      setVisitorCount(count);
+    }
+  }, []);
+
+  return (
     <>
       <div className="landing-section" id="landingDiv">
         <div className="landing-container">
