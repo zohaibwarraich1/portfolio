@@ -23,7 +23,7 @@
   -webkit-text-fill-color: transparent;
   color: transparent;
   margin-top: 50px;
-  margin-bottom: 90px;
+  margin-bottom: 60px;
 }
 
 .career-section h2>span {
@@ -31,6 +31,53 @@
   font-weight: 300;
 }
 
+/* ── Tabs ── */
+.career-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  overflow: hidden;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.career-tab {
+  padding: 14px 40px;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Geist", sans-serif;
+  position: relative;
+}
+
+.career-tab:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.career-tab-active {
+  color: var(--accentColor);
+  background: rgba(94, 234, 212, 0.08);
+  box-shadow: 0 0 20px rgba(94, 234, 212, 0.05);
+}
+
+/* ── Tab Content ── */
+.career-tab-content {
+  width: 100%;
+  min-height: 300px;
+}
+
+/* ── Education (timeline) ── */
 .career-info {
   position: relative;
   display: flex;
@@ -111,37 +158,120 @@
 }
 
 @keyframes timeline {
-
-  10%,
-  20%,
-  50%,
-  70%,
-  90% {
+  10%, 20%, 50%, 70%, 90% {
     box-shadow: 0px 0px 5px 2px #67e8f9;
   }
-
-  10%,
-  30%,
-  0%,
-  100%,
-  64%,
-  80% {
+  10%, 30%, 0%, 100%, 64%, 80% {
     box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 5px #5eead4,
       0px 0px 110px 20px #a5f3fc;
   }
 }
 
-@keyframes timeline2 {
-  0% {
-    box-shadow: 0px 0px 5px 2px #67e8f9;
-  }
-
-  100% {
-    box-shadow: 0px 0px 5px 2px #67e8f9, 0px 0px 15px 5px #5eead4,
-      0px 0px 110px 20px #a5f3fc;
-  }
+/* ── Certifications ── */
+.cert-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
+.cert-card {
+  display: flex;
+  gap: 24px;
+  padding: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accentColor), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.cert-card:hover {
+  border-color: rgba(94, 234, 212, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(94, 234, 212, 0.06);
+}
+
+.cert-card:hover::before {
+  opacity: 1;
+}
+
+.cert-badge {
+  font-size: 42px;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(94, 234, 212, 0.06);
+  border: 1px solid rgba(94, 234, 212, 0.15);
+}
+
+.cert-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.cert-details h4 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.cert-details h5 {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--accentColor);
+  margin: 6px 0 0;
+  letter-spacing: 0.5px;
+}
+
+.cert-details h3 {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.3;
+  flex-shrink: 0;
+}
+
+.cert-details p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 16px 0 0;
+}
+
+/* ── Responsive ── */
 @media only screen and (max-width: 1400px) {
   .career-section h2 {
     font-size: 50px;
@@ -173,6 +303,14 @@
 
   .career-info-box p {
     width: 45%;
+  }
+
+  .cert-details h4 {
+    font-size: 20px;
+  }
+
+  .cert-details h3 {
+    font-size: 30px;
   }
 }
 
@@ -206,6 +344,25 @@
   .career-container {
     width: calc(100% - 25px);
   }
+
+  .career-tab {
+    padding: 12px 28px;
+    font-size: 13px;
+  }
+
+  .cert-card {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .cert-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cert-details h3 {
+    font-size: 28px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -236,9 +393,19 @@
   .career-section {
     padding-top: 90px;
     margin-top: -70px;
-
     align-items: start;
     place-items: inherit;
     justify-content: left;
+  }
+
+  .career-tab {
+    padding: 10px 22px;
+    font-size: 12px;
+  }
+
+  .cert-badge {
+    width: 48px;
+    height: 48px;
+    font-size: 32px;
   }
 }
