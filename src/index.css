@@ -130,8 +130,114 @@ body {
   }
 }
 
+.techstack-content-wrapper {
+  height: 100%;
+  width: 100%;
+  padding-top: 250px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-grid-view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 100px;
+  z-index: 20;
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  gap: 15px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.tech-card:hover {
+  border-color: rgba(94, 234, 212, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(94, 234, 212, 0.1),
+              inset 0 0 20px rgba(94, 234, 212, 0.05);
+}
+
+.tech-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icon-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-icon-wrapper img {
+  transform: scale(1.1);
+}
+
+.tech-card span {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Geist", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover span {
+  color: #fff;
+}
+
 @media screen and (max-width: 900px) {
   .techstack h2 {
     font-size: 40px;
+    top: 80px;
+  }
+  
+  .tech-card {
+    width: 110px;
+    height: 110px;
+    gap: 10px;
+  }
+  
+  .tech-icon-wrapper {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .tech-card span {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .tech-grid-view {
+    gap: 15px;
+  }
+  .tech-card {
+    width: calc(33% - 13px);
+    height: 100px;
   }
 }
