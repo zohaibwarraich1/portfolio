@@ -216,21 +216,30 @@
 }
 
 .cert-badge {
-  font-size: 42px;
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  background: rgba(94, 234, 212, 0.06);
-  border: 1px solid rgba(94, 234, 212, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  padding: 10px;
+}
+
+.cert-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .cert-details {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .cert-header {
@@ -268,7 +277,27 @@
   font-weight: 300;
   line-height: 22px;
   color: rgba(255, 255, 255, 0.6);
-  margin: 16px 0 0;
+  margin: 16px 0 20px;
+}
+
+.cert-verify-link {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accentColor);
+  text-decoration: none;
+  border: 1px solid rgba(94, 234, 212, 0.3);
+  border-radius: 20px;
+  background: rgba(94, 234, 212, 0.05);
+  transition: all 0.3s ease;
+}
+
+.cert-verify-link:hover {
+  background: rgba(94, 234, 212, 0.15);
+  border-color: var(--accentColor);
+  box-shadow: 0 0 10px rgba(94, 234, 212, 0.2);
 }
 
 /* ── Responsive ── */

@@ -25,7 +25,8 @@ const certificationData = [
     year: "2025",
     description:
       "Achieved AWS Cloud Practitioner certification, validating foundational knowledge of AWS cloud services, architecture, security, and pricing models.",
-    badge: "☁️",
+    image: "/images/aws-logo.jpg",
+    verificationLink: "https://cp.certmetrics.com/amazon/en/public/verify/credential/b92aa5827a7144a1b8d75df22211a8ec", 
   },
 ];
 
@@ -84,7 +85,9 @@ const Career = () => {
             <div className="cert-grid">
               {certificationData.map((cert, index) => (
                 <div className="cert-card" key={index}>
-                  <div className="cert-badge">{cert.badge}</div>
+                  <div className="cert-badge">
+                    <img src={cert.image} alt={cert.title} />
+                  </div>
                   <div className="cert-details">
                     <div className="cert-header">
                       <div>
@@ -94,6 +97,17 @@ const Career = () => {
                       <h3>{cert.year}</h3>
                     </div>
                     <p>{cert.description}</p>
+                    {cert.verificationLink && (
+                      <a
+                        href={cert.verificationLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cert-verify-link"
+                        data-cursor="disable"
+                      >
+                        Verify Certification →
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
