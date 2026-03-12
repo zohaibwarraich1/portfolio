@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { IoSunnyOutline, IoMoonOutline } from "react-icons/io5";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
 
 const Navbar = () => {
-  const [isLight, setIsLight] = useState(() => {
-    return localStorage.getItem("theme") === "light";
-  });
-
-  useEffect(() => {
-    if (isLight) {
-      document.documentElement.classList.add("light-mode");
-    } else {
-      document.documentElement.classList.remove("light-mode");
-    }
-    localStorage.setItem("theme", isLight ? "light" : "dark");
-  }, [isLight]);
-
   useEffect(() => {
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
@@ -59,14 +45,6 @@ const Navbar = () => {
         <a href="/#" className="navbar-title" data-cursor="disable">
           MZW
         </a>
-        <button
-          className="theme-toggle"
-          onClick={() => setIsLight(!isLight)}
-          data-cursor="disable"
-          aria-label="Toggle theme"
-        >
-          {isLight ? <IoMoonOutline /> : <IoSunnyOutline />}
-        </button>
         <a
           href="mailto:mzohaibw1@gmail.com"
           className="navbar-connect"

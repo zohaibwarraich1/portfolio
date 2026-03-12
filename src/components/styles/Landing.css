@@ -398,13 +398,11 @@ h2.landing-info-h2 {
 
 /* Resume CTA Button */
 .landing-cta {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  z-index: 10;
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 25px;
+  z-index: 10;
 }
 
 .landing-cta-btn {
@@ -473,9 +471,7 @@ h2.landing-info-h2 {
 
 @media screen and (max-width: 1024px) {
   .landing-cta {
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    justify-content: center;
   }
 }
 

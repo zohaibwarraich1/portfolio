@@ -32,6 +32,19 @@ const Landing = ({ children }: PropsWithChildren) => {
               <br />
               <span>WARRAICH</span>
             </h1>
+            <div className="landing-cta">
+              <a
+                className="landing-cta-btn"
+                href="/resume/DevOps M Zohaib warraich CV.pdf"
+                target="_blank"
+                data-cursor="disable"
+              >
+                <HiOutlineDownload /> Download CV
+              </a>
+              <div className="visitor-counter">
+                <FiEye /> <span className="visitor-count">{visitorCount}</span> visits
+              </div>
+            </div>
           </div>
           <div className="landing-info">
             <h3>A Junior</h3>
@@ -43,19 +56,6 @@ const Landing = ({ children }: PropsWithChildren) => {
               <div className="landing-h2-info">Engineer</div>
               <div className="landing-h2-info-1">Engineer</div>
             </h2>
-          </div>
-          <div className="landing-cta">
-            <a
-              className="landing-cta-btn"
-              href="/resume/DevOps M Zohaib warraich CV.pdf"
-              target="_blank"
-              data-cursor="disable"
-            >
-              <HiOutlineDownload /> Download CV
-            </a>
-            <div className="visitor-counter">
-              <FiEye /> <span className="visitor-count">{visitorCount}</span> visits
-            </div>
           </div>
         </div>
         {children}
