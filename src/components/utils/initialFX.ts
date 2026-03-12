@@ -51,19 +51,6 @@ export function initialFX() {
   );
 
   gsap.fromTo(
-    ".landing-cta",
-    { opacity: 0, y: 30, filter: "blur(5px)" },
-    {
-      opacity: 1,
-      duration: 1,
-      filter: "blur(0px)",
-      ease: "power3.inOut",
-      y: 0,
-      delay: 1.2,
-    }
-  );
-
-  gsap.fromTo(
     ".landing-info-h2",
     { opacity: 0, y: 30 },
     {

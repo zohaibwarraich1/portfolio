@@ -2,6 +2,7 @@ import {
   FaGithub,
   FaInstagram,
   FaLinkedinIn,
+  FaMedium,
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
@@ -73,8 +74,13 @@ const SocialIcons = () => {
             <FaInstagram />
           </a>
         </span>
+        <span>
+          <a href="https://medium.com/@muhammadzohaibwarraich0" target="_blank">
+            <FaMedium />
+          </a>
+        </span>
       </div>
-      <a className="resume-button" href="/resume/DevOps%20M%20Zohaib%20warraich%20CV.pdf" target="_blank">
+      <a className="resume-button" href="/resume/DevOps M Zohaib warraich CV.pdf" target="_blank">
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />

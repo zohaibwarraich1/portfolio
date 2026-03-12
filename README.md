@@ -5,4 +5,4 @@ Do check it out!
 
 ## License
 
-This project is open source and also available under the [MIT License](LICENSE).
+This project is open source and available under the [MIT License](LICENSE).
