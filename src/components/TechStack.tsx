@@ -181,10 +181,10 @@ const TechStack = () => {
     { name: "ArgoCD", image: "/images/argocd-logo.webp" },
     { name: "Prometheus", image: "/images/prometheus-logo.png" },
     { name: "Grafana", image: "/images/grafana-logo.png" },
-    { name: "Linux", image: "/images/linux-logo.jpeg" },
+    { name: "Linux", image: "/images/linux-logo.webp" },
     { name: "Bash", image: "/images/bash-logo.png" },
     { name: "Git", image: "/images/git-logo.png" },
-    { name: "Nginx", image: "/images/nginx-logo.jpg" },
+    { name: "Nginx", image: "/images/nginx-logo.webp" },
   ];
 
   return (
