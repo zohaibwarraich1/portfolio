@@ -11,6 +11,10 @@
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 50px;
+  width: 100%;
+  text-align: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .work-section h2>span {
@@ -20,10 +24,7 @@
 .work-container {
   margin: auto;
   position: relative;
-  display: flex;
-  justify-content: center;
   width: 100%;
-  padding: 0 120px;
   box-sizing: border-box;
 }
 
@@ -33,6 +34,9 @@
   width: 100%;
   overflow: visible;
   max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 120px;
+  box-sizing: border-box;
 }
 
 .carousel-track-container {
@@ -295,7 +299,7 @@
 
 /* ── Responsive ── */
 @media only screen and (max-width: 1600px) {
-  .work-container {
+  .carousel-wrapper {
     padding: 0 100px;
   }
 
@@ -309,7 +313,7 @@
 }
 
 @media only screen and (max-width: 1400px) {
-  .work-container {
+  .carousel-wrapper {
     padding: 0 80px;
   }
 
@@ -339,7 +343,7 @@
 }
 
 @media only screen and (max-width: 1025px) {
-  .work-container {
+  .carousel-wrapper {
     padding: 0 60px;
   }
 
@@ -372,7 +376,7 @@
 }
 
 @media only screen and (max-width: 900px) {
-  .work-container {
+  .carousel-wrapper {
     padding: 0 40px;
   }
 
