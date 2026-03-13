@@ -16,18 +16,18 @@ const perfSettings = getCachedPerformanceSettings();
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/aws.jpg",
+  "/images/aws.webp",
   "/images/docker.webp",
   "/images/kubernetes.webp",
-  "/images/jenkins.png",
-  "/images/terraform.jpg",
+  "/images/jenkins.webp",
+  "/images/terraform.webp",
   "/images/argocd.webp",
-  "/images/prometheus.png",
+  "/images/prometheus.webp",
   "/images/grafana.webp",
   "/images/linux.webp",
-  "/images/bash-scripting.png",
-  "/images/git.png",
-  "/images/nginx.jpg"
+  "/images/bash-scripting.webp",
+  "/images/git.webp",
+  "/images/nginx.webp"
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
